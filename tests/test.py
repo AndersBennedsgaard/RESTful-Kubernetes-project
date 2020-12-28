@@ -9,6 +9,7 @@ def add(item_name, quantity=1, note=""):
         BASE_URL + "shoppinglist",
         data={"name": item_name, "quantity": str(quantity), "note": note},
     )
+
     return res
 
 
@@ -18,8 +19,10 @@ def retrieve(item_id="all"):
 
     if item_id == "all":
         res = get(BASE_URL + "shoppinglist")
+
         return res
     res = get(BASE_URL + "shoppinglist/" + item_id)
+
     return res
 
 
@@ -31,6 +34,7 @@ def update(item_id, item_name, quantity=1, note=""):
         BASE_URL + "shoppinglist/" + item_id,
         data={"name": item_name, "quantity": str(quantity), "note": note},
     )
+
     return res
 
 
@@ -39,6 +43,7 @@ def remove(item_id):
         item_id = str(item_id)
 
     res = delete(BASE_URL + "shoppinglist/" + item_id)
+
     return res
 
 
@@ -63,7 +68,7 @@ print(res.text)
 print("\nGET all")
 res = retrieve()
 print(res.text)
-new_id = len(res.json()) + 1
+new_id = len(res.json())
 
 print(f"\nGET item with id {new_id}")
 res = retrieve(new_id)
