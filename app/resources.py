@@ -4,8 +4,10 @@ from app.db import db, ItemModel
 
 
 parser = reqparse.RequestParser()
+# In order to PUT quantity/note without updating name, name is not a required input
+# But it is nullable=False in the database, to ensure that it has a name
 parser.add_argument(
-    "name", required=True, type=str, help="Name of the item is required"
+    "name", required=False, type=str, help="Name of the item is required"
 )
 parser.add_argument("quantity", required=False, type=str)
 parser.add_argument("note", required=False, type=str)
@@ -54,6 +56,8 @@ class Item(Resource):
 
     def delete(self, item_id):
         item = ItemModel.query.filter_by(item_id=item_id).first()
+        if item is None:
+            abort(404, message=f"Item with id {item_id} not found")
         db.session.delete(item)
         db.session.commit()
         return "", 204

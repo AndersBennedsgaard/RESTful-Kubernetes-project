@@ -5,9 +5,9 @@ from app.logger import log
 db = SQLAlchemy()
 
 
-def init_db(app):
+def init_db(app, testing):
     db.init_app(app)
-    if not os.path.isfile("app/database.db"):
+    if testing or not os.path.isfile("app/database.db"):
         with app.app_context():
             db.create_all()
         log.warning("Created database from scratch")
@@ -23,8 +23,8 @@ class ItemModel(db.Model):
 
     item_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    # db.String(100) = maximum 100 character string.
-    # nullable=False, name must be defined
+    # db.String(100): maximum 100 character string.
+    # nullable=False: name must be defined
     quantity = db.Column(db.String(20), nullable=True)
     note = db.Column(db.String(100), nullable=True)
 
