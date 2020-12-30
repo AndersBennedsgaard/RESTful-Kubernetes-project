@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restful import Api
 from app.logger import log
 from app.resources import Item, ShoppingList
@@ -21,11 +21,17 @@ def create_app(testing=False):
 
     init_db(app, testing)
 
+    # Add resources that is accessible through URIs
     api.add_resource(ShoppingList, "/shoppinglist")
     api.add_resource(Item, "/shoppinglist/<int:item_id>")
 
+    @app.route("/")
+    def index():
+        # When returning a string, it is converted to bytes: b"hello world"
+        return "hello world"
+
     @app.route("/health")
     def health_check():
-        return jsonify("healthy")
+        return "healthy"
 
     return app

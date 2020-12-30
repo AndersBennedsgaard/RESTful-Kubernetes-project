@@ -21,8 +21,8 @@ dictConfig(
             "file": {
                 "class": "logging.handlers.RotatingFileHandler",
                 "formatter": "precise",
-                "filename": "api.log",
-                "maxBytes": 1024 ** 2,
+                "filename": "logs/api.log",
+                "maxBytes": 1024 ** 2,  # 1 Mb
                 "backupCount": 1,
             },
         },
