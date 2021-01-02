@@ -1,10 +1,12 @@
-FROM python:3.6-slim-buster
+FROM python:3.7-alpine
 
 WORKDIR /app
-COPY . .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-EXPOSE 3000
+COPY . .
 
-CMD ["python", "app.py"]
+EXPOSE 5000
+
+CMD ["./run"]

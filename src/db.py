@@ -1,13 +1,13 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
-from app.logger import log
+from src.logger import log
 
 db = SQLAlchemy()
 
 
 def init_db(app, testing):
     db.init_app(app)
-    if testing or not os.path.isfile("app/database.db"):
+    if testing or not os.path.isfile("src/database.db"):
         with app.app_context():
             db.create_all()
         log.warning("Created database from scratch")

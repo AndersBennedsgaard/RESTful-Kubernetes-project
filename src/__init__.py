@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restful import Api
-from app.logger import log
-from app.resources import Item, ShoppingList
-from app.db import init_db
+from src.logger import log
+from src.resources import Item, ShoppingList
+from src.db import init_db
 
 
 def create_app(testing=False):

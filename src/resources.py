@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse, fields, marshal_with, abort
-from app.logger import log
-from app.db import db, ItemModel
+from src.logger import log
+from src.db import db, ItemModel
 
 
 parser = reqparse.RequestParser()
