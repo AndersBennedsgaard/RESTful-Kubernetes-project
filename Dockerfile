@@ -10,8 +10,8 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
 WORKDIR /app
 COPY src/ src/
 RUN mkdir logs
-COPY run .
+COPY run_server .
 
 EXPOSE 5000
 
-CMD ["./run"]
+CMD ["./run_server"]
