@@ -13,19 +13,18 @@ Have Python, pip, and Git installed:
     pip install -r requirements.txt
 
 ## Run API
-Run a development server in the terminal, which can be accessed through http://localhost:5000
+Run a development server in the terminal, which can be accessed through http://localhost:5000:
     
     cd RESTful-Kubernetes-project
-    python wsgi.py
+    ./run_server
 
 With requests (a Python package) the API can be interacted with, at 
-> http://localhost:5000/shoppinglist
+> http://localhost:5000/
 
-and
+An example script can also be found in `example_script.py`. 
+When the server is running, the script can be run by simply calling 
 
-> http://localhost:5000/shoppinglist/item_id
-
-where item_id is an integer.
+    python example_script.py
 
 ## Run tests
 
