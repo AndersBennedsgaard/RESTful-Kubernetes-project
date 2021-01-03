@@ -7,7 +7,7 @@ db = SQLAlchemy()
 
 def init_db(app, testing):
     db.init_app(app)
-    if testing or not os.path.isfile("src/database.db"):
+    if testing or not os.path.isfile("src/data/database.db"):
         with app.app_context():
             db.create_all()
         log.warning("Created database from scratch")

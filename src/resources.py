@@ -28,10 +28,8 @@ class Item(Resource):
     @marshal_with(item_fields)
     def get(self, item_id):
         if item_id == -1:
-            log.debug("GET last inputted item")
+            log.info("GET last inputted item")
             item_id = db.session.query(db.func.max(ItemModel.item_id)).scalar()
-        else:
-            log.debug(f"GET item {item_id}")
         # Creates instance of the class. Not serializable. Marshal_with creates a serializable resource
         item = ItemModel.query.filter_by(item_id=item_id).first()
         if item is None:

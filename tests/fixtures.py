@@ -8,4 +8,4 @@ def client():
     app = create_app(testing=True)
     yield app.test_client()
 
-    os.remove("src/test.db")
+    os.remove("src/data/test.db")
