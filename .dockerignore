@@ -1,5 +1,5 @@
 ### Project specific ###
-*.db
+src/data/*.db
 interact.py
 Dockerfile
 
