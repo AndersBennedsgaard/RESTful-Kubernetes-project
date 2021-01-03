@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-list
+spec:
+  selector:
+    matchLabels:
+      app: MyShoppingList
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: MyShoppingList
+    spec:
+      containers:
+        - name: shopping-list
+          image: shopping-list:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
