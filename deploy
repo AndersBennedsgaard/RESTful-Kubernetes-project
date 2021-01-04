@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Building Docker image ..."
-docker build -f Docker/Dockerfile -t shopping-list:latest
+docker build -f Docker/Dockerfile -t shopping-list:latest .

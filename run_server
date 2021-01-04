@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+# Must be sh and not bash, as Alpine does not have bash
 
 export FLASK_APP=src
 export FLASK_ENV=production

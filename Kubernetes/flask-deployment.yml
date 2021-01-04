@@ -20,6 +20,8 @@ spec:
             - containerPort: 5000
               name: http
               protocol: TCP
+          command: ["/bin/sh"]
+          args: ["-c", "sleep 10 && echo Sleep expired > /dev/termination-log"]
           resources:
             requests:
               cpu: "10m"
