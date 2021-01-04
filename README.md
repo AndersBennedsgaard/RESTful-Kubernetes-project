@@ -1,6 +1,7 @@
 # RESTful-Kubernetes-project
 
 Small shopping list REST API project that can be deployed to a Kubernetes cluster.
+(K8s continuously in a CrashLoopBackOff as of now..)
 
 ## Installation: 
 Have Python, pip, and Git installed:
@@ -8,8 +9,8 @@ Have Python, pip, and Git installed:
     git clone git@github.com:AndersBennedsgaard/RESTful-Kubernetes-project.git
     cd RESTful-Kubernetes-project/
     virtualenv .
-    (Linux/Mac) source bin/activate
-    (Windows) Scripts/activate.bat
+    (Linux/Mac): source bin/activate
+    (Windows): Scripts/activate.bat
     pip install -r requirements.txt
 
 ## Run API
