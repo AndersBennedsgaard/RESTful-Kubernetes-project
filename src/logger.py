@@ -1,6 +1,9 @@
+import os
 import logging as log
 from logging.config import dictConfig
 
+filename = "logs/api.log"
+os.makedirs(os.path.dirname(filename), exist_ok=True)
 
 dictConfig(
     {
@@ -21,7 +24,7 @@ dictConfig(
             "file": {
                 "class": "logging.handlers.RotatingFileHandler",
                 "formatter": "precise",
-                "filename": "logs/api.log",
+                "filename": filename,
                 "maxBytes": 1024 ** 2,  # 1 Mb
                 "backupCount": 1,
             },
