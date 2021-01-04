@@ -1,5 +1,9 @@
 ### Project specific ###
 *.db
+Include/
+Scripts/
+pip-selfcheck.json
+tcl/
 
 ##### Gitignore.io for Python and VSCode #####
 ### Python ###
