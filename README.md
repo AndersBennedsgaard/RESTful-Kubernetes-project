@@ -1,27 +1,28 @@
 # RESTful-Kubernetes-project
 
-Small REST API project that can be deployed to a Kubernetes cluster.
+Small shopping list REST API project that can be deployed to a Kubernetes cluster.
 
-(Docker and Kubernetes not set up as of yet)
-
-## Installation (not tested): 
+## Installation: 
 Have Python, pip, and Git installed:
     
     git clone git@github.com:AndersBennedsgaard/RESTful-Kubernetes-project.git
     cd RESTful-Kubernetes-project/
-    virtualvenv .
+    virtualenv .
+    (Linux/Mac) source bin/activate
+    (Windows) Scripts/activate.bat
     pip install -r requirements.txt
 
 ## Run API
 Run a development server in the terminal, which can be accessed through http://localhost:5000:
-    
+
     cd RESTful-Kubernetes-project
-    ./run_server
+    (Linux/Mac): ./run_server
+    (Windows): run_server.bat
 
 With requests (a Python package) the API can be interacted with, at 
 > http://localhost:5000/
 
-A Python example script can also be found in `example_script.py`. 
+A Python example script can be found in `example_script.py`. 
 When the server is running, the script can be run by simply calling 
 
     python example_script.py
