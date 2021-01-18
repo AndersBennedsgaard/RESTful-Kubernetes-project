@@ -4,5 +4,4 @@ echo "Building Docker image ..."
 docker build -f Docker/Dockerfile -t shopping-list:latest .
 
 echo "Applying Kubernetes Service and Deployment ..."
-kubectl apply -f Kubernetes/flask_service.yml
-kubectl apply -f Kubernetes/flask_deployment.yml
+kubectl apply -f Kubernetes/flask-deployment.yml

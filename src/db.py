@@ -8,7 +8,7 @@ db = SQLAlchemy()
 def init_db(app, testing):
     db.init_app(app)
     if testing or not os.path.isfile("src/data/database.db"):
-        os.makedirs(os.path.join(os.path.dirname(__file__), 'data'), exist_ok=True)
+        os.makedirs(os.path.join(os.path.dirname(__file__), "data"), exist_ok=True)
         with app.app_context():
             db.create_all()
         log.warning("Created database from scratch")
