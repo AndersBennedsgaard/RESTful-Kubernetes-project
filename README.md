@@ -1,22 +1,49 @@
 # RESTful-Kubernetes-project
 
-Small shopping list REST API project that can be deployed to a Kubernetes cluster.
-(K8s continuously in a CrashLoopBackOff as of now..)
+Small shopping list REST API project that can be deployed to a local Kubernetes cluster.
+(Deployment to the Kubernetes cluster is still a work in progress)
 
-## Installation: 
-Have Python, pip, and Git installed:
-    
+To get the project, clone it with Git:
+
     git clone git@github.com:AndersBennedsgaard/RESTful-Kubernetes-project.git
     cd RESTful-Kubernetes-project/
+
+## Automated deployment to a Kubernetes cluster (WIP)
+Have Docker and kubectl installed, with a Kubernetes cluster running:
+
+    ./deploy
+
+The API should be accessible through http://localhost:8000 now.
+
+## Manual deployment
+Create a Docker image:
+
+    docker build -f Docker/Dockerfile -t shopping-list:latest .
+
+Optionally, the API can be accessed by running the Docker container (use -d to daemonize it):
+
+    docker run -p 8000:5000 shopping-list
+
+The API should be accessible through http://localhost:8000 now.
+
+It can now be deployed to a Kubernetes Cluster, by running:
+
+    kubectl apply -f Kubernetes/flask-service.yml
+    kubectl apply -f Kubernetes/flask-deployment.yml
+
+Again, the API should be accessible through http://localhost:8000 now if run on a local cluster.
+
+## Development installation 
+Have Python and pip installed:
+    
     virtualenv .
     (Linux/Mac): source bin/activate
     (Windows): Scripts/activate.bat
     pip install -r requirements.txt
 
-## Run API
+## Run API in development mode
 Run a development server in the terminal, which can be accessed through http://localhost:5000:
 
-    cd RESTful-Kubernetes-project
     (Linux/Mac): ./run_server
     (Windows): run_server.bat
 
@@ -55,5 +82,4 @@ If cURL is more to your liking, this does the same as the Python script:
 
 ## Run tests
 
-    cd RESTful-Kubernetes-project
     pytest -v
